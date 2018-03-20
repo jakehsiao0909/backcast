@@ -4,12 +4,15 @@ var AppView = Backbone.View.extend({
 
   initialize: function() {
     this.videos = new Videos(window.exampleVideoData);
+    this.listenTo(this.videos, 'sync', this.initialVideo);
+    this.videos.search();
     this.render();
 
   },
 
-  
-
+  initialVideo: function() {
+    this.videos.at(0).select();
+  },
 
   render: function() {
     this.$el.html(this.template());

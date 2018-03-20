@@ -1,6 +1,6 @@
 describe ('VideosCollection', function() {
 
-  xdescribe('when retrieving live data from YouTube', function() {
+  describe('when retrieving live data from YouTube', function() {
     var collection;
 
     beforeEach(function() {
@@ -29,6 +29,8 @@ describe ('VideosCollection', function() {
     it('should convert the fetched data into an array', function() {
       expect(collection.parse).to.be.a('function');
       var response = collection.parse({ items: fakeVideoData });
+      console.log(fakeVideoData)
+      console.log(response)
       expect(response).to.be.equal(fakeVideoData);
     });
 
